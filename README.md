@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+## Nome: `Francielle Abreu`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para executar este projeto:
 
-## Available Scripts
+1. Entre pasta hotwheels-crud no terminal:
+```
+cd hotwheels-crud
+```
 
-In the project directory, you can run:
+2. Rode npm install para instalar as dependências do projeto:
+```
+npm install
+```
 
-### `npm start`
+3. E em seguida, npm start, para iniciar a execução do projeto.
+```
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Após execução do projeto, este é o resultado esperado no navegador:
+![alt text](image.png)
+Sobre:
+![alt text](image-1.png)
+Adicionar carro:
+![alt text](image-2.png)
+Lista de Carros:
+![alt text](image-3.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Introdução
 
-### `npm test`
+Este projeto contém uma estrutura básica a partir do template CRA, sem muitas alterações, com o objetivo de demostrar como compartilhar o estado de uma aplicação utilizando React Router.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Componentes e Páginas
 
-### `npm run build`
+Os componentes estão no diretório `./src/components` e foram organizados da seguinte forma:
+ possuem as seguintes características:
+- CarForm: componente responsável por renderizar um formulário que permite ao usuário adicionar informações sobre um carro. 
+- CarList: componente responsável por listar os carros adicionados no compornente CarForm.
+- Navbar: este componente utiliza Link do React Router para mostrar as páginas disponíveis em uma barra de navegação.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As páginas estão no diretório `./src/pages` e foram organizados da seguinte forma:
+ possuem as seguintes características:
+- Home: página inicial da aplicação, que dá boas-vindas aos usuários.
+- About: fornece informações sobre a aplicação, incluindo seu propósito, bem como outras informações relevantes.
+- AddCar: contém o formulário de adição de carros (`CarForm`). É onde os usuários podem inserir novas entradas de carros na aplicação. A página `AddCar` centraliza o formulário e fornece um cabeçalho claro indicando a funcionalidade de adicionar um carro.
+- Cars: esta página exibe a lista de carros que foram adicionados (`CarList`). Utiliza dados armazenados no `localStorage` para manter a persistência dos dados entre as sessões do navegador. Cada carro é listado com suas informações (nome, marca, cor e ano).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Conclusão
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este projeto é apenas para fins demonstrativos e não contém mais alterações do que as necessárias para demostrar algumas funcionalidades úteis para o desenvolvimento de projetos em ReactJS.

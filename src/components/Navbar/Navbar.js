@@ -11,8 +11,8 @@ function NavBar() {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/about">Sobre</Nav.Link>
-                        <Nav.Link href="/carsList">Lista de Carros</Nav.Link>
-                        <Nav.Link href="/addCar">Adicionar Carro</Nav.Link>
+                        <Nav.Link href="/addCar">Add Carro</Nav.Link>
+                        <Nav.Link href="/cars">Carros</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

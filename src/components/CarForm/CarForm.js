@@ -26,46 +26,50 @@ function CarForm() {
         const cars = JSON.parse(localStorage.getItem('cars')) || [];
         cars.push(formData);
         localStorage.setItem('cars', JSON.stringify(cars));
-        navigate('/carsList');
+        navigate('/cars');
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Label htmlFor="nome">Nome:</Form.Label>
-            <Form.Control
-                type="text"
-                id="nome"
-                value={formData.nome}
-                onChange={handleChange}
-            />
+        <div style={{ margin: '40px', alignItems: 'center' }}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Control
+                    type="text"
+                    id="nome"
+                    placeholder="Nome"
+                    value={formData.nome}
+                    onChange={handleChange}
+                />
 
-            <Form.Label htmlFor="marca">Marca:</Form.Label>
-            <Form.Control
-                type="text"
-                id="marca"
-                value={formData.marca}
-                onChange={handleChange}
-            />
+                <Form.Control
+                    type="text"
+                    id="marca"
+                    placeholder="Marca"
+                    value={formData.marca}
+                    onChange={handleChange}
+                />
 
-            <Form.Label htmlFor="cor">Cor:</Form.Label>
-            <Form.Control
-                type="text"
-                id="cor"
-                value={formData.cor}
-                onChange={handleChange}
-            />
+                <Form.Control
+                    type="text"
+                    id="cor"
+                    placeholder="Cor"
+                    value={formData.cor}
+                    onChange={handleChange}
+                />
 
-            <Form.Label htmlFor="ano">Ano:</Form.Label>
-            <Form.Control
-                type="number"
-                id="ano"
-                value={formData.ano}
-                onChange={handleChange}
-            />
+                <Form.Control
+                    type="number"
+                    id="ano"
+                    placeholder="Ano"
+                    value={formData.ano}
+                    onChange={handleChange}
+                />
 
-            <Button variant="primary" type="submit">Adicionar</Button>{' '}
-            <Button variant="secondary" type="button">Cancelar</Button>{' '}
-        </Form>
+                <div style={{ margin: '40px', alignItems: 'center' }}>
+                    <Button variant="primary" type="submit">Adicionar</Button>{' '}
+                    <Button variant="secondary" type="button">Cancelar</Button>{' '}
+                </div>
+            </Form>
+        </div>
     );
 }
 

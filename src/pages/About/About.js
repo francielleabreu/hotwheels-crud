@@ -8,6 +8,8 @@ function About() {
             <NavBar />
             <div style={{ margin: '40px', textAlign: 'center' }}>
                 <h1>Sobre a coleção HotWheels</h1>
+            </div>
+            <div style={{ margin: '40px', textAlign: 'center' }}>
                 <div className="d-flex justify-content-around">
                     <Card style={{ width: '30rem' }}>
                         <Card.Img variant="top" src="/assets/images/hotwheels-about.png" alt="Logo HotWheels" />

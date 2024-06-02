@@ -1,17 +1,17 @@
 import React from 'react';
 import NavBar from '../../components/Navbar/Navbar';
-import CarForm from '../../components/CarForm/CarForm';
+import CarList from '../../components/CarList/CarList';
 
-function AddCar() {
+function Cars() {
     return (
         <div>
             <NavBar />
             <div style={{ margin: '40px', textAlign: 'center' }}>
-                <h1>Adicionar Carro</h1>
+                <h1>Lista de Carros</h1>
             </div>
-            <CarForm />
+            <CarList />
         </div>
     );
 }
 
-export default AddCar;
+export default Cars;

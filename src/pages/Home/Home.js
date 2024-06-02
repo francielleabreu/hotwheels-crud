@@ -5,7 +5,7 @@ function Home() {
     return (
         <div>
             <NavBar />
-            <div style={{ marginTop: '40px', textAlign: 'center' }}>
+            <div style={{ margin: '40px', textAlign: 'center' }}>
                 <h1>Bem-vindo a coleção HotWheels</h1>
                 <div>
                     <img src="/assets/images/hotwheels-logo.png" alt="Logo HotWheels" style={{ width: '300px', height: 'auto' }} />

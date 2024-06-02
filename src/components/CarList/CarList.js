@@ -1,10 +1,9 @@
 import React from 'react';
-import NavBar from '../../components/Navbar/Navbar';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 
-function Carslist() {
+function CarList() {
     const navigate = useNavigate();
     let cars = JSON.parse(localStorage.getItem('cars')) || [];
 
@@ -20,9 +19,7 @@ function Carslist() {
 
     return (
         <div>
-            <NavBar />
-            <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                <h1>Lista de Carros</h1>
+            <div style={{ margin: '40px', alignItems: 'center' }}>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -48,11 +45,13 @@ function Carslist() {
                     </tbody>
                 </Table>
             </div>
-            <Button variant="primary" onClick={handleAddCarClick}>
-                Adicionar Carro
-            </Button>
+            <div style={{ textAlign: 'center' }}>
+                <Button variant="primary" onClick={handleAddCarClick}>
+                    Adicionar Carro
+                </Button>
+            </div>
         </div>
     );
 }
 
-export default Carslist;
+export default CarList;
