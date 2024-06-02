@@ -1,22 +1,18 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from 'react-router-dom';
-import { Home, About, AddCar, Carslist, NotFound } from './pages';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Home, About, AddCar, Carslist } from './pages';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <Router>
       <div>
-        <Route path="/" exact component={Home} />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/addCar" element={<AddCar />} />
           <Route path="/carsList" element={<Carslist />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
