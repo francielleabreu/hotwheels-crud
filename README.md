@@ -30,7 +30,7 @@ Lista de Carros:
 
 ## Introdução
 
-Este projeto contém uma estrutura básica a partir do template CRA, sem muitas alterações, com o objetivo de demostrar como compartilhar o estado de uma aplicação utilizando React Router.
+Este projeto contém uma estrutura básica a partir do template CRA com o objetivo de demostrar como compartilhar o estado de uma aplicação utilizando React Router.
 
 ## Componentes e Páginas
 
