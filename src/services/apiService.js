@@ -34,7 +34,7 @@ export const updateCar = async (car) => {
 
 export const deleteCar = async (id) => {
     try {
-        const response = await axios.delete(`${API_BASE_URL}?id=${id}`);
+        const response = await axios.delete(`${API_BASE_URL}/${id}`);
         return response.data;
     } catch (error) {
         console.error("Erro ao deletar carro", error);

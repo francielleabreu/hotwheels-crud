@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { createCar } from '../../services/apiService';
 
 function CarForm() {
     const [formData, setFormData] = useState({
-        nome: '',
-        marca: '',
-        cor: '',
-        ano: ''
+        name: '',
+        brand: '',
+        color: '',
+        year: ''
     });
 
     const navigate = useNavigate();
@@ -23,10 +24,12 @@ function CarForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const cars = JSON.parse(localStorage.getItem('cars')) || [];
-        cars.push(formData);
-        localStorage.setItem('cars', JSON.stringify(cars));
-        navigate('/cars');
+        try {
+            createCar(formData);
+            navigate('/cars');
+        } catch (error) {
+            console.error('Erro ao salvar os dados:', error);
+        }
     };
 
     return (
@@ -34,33 +37,33 @@ function CarForm() {
             <Form onSubmit={handleSubmit}>
                 <Form.Control
                     type="text"
-                    id="nome"
+                    id="name"
                     placeholder="Nome"
-                    value={formData.nome}
+                    value={formData.name}
                     onChange={handleChange}
                 />
 
                 <Form.Control
                     type="text"
-                    id="marca"
+                    id="brand"
                     placeholder="Marca"
-                    value={formData.marca}
+                    value={formData.brand}
                     onChange={handleChange}
                 />
 
                 <Form.Control
                     type="text"
-                    id="cor"
+                    id="color"
                     placeholder="Cor"
-                    value={formData.cor}
+                    value={formData.color}
                     onChange={handleChange}
                 />
 
                 <Form.Control
                     type="number"
-                    id="ano"
+                    id="year"
                     placeholder="Ano"
-                    value={formData.ano}
+                    value={formData.year}
                     onChange={handleChange}
                 />
 

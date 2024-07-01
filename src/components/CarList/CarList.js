@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { deleteCar, getCars, updateCar } from '../../services/apiService';
 
 function CarList() {
     const navigate = useNavigate();
-    const [cars, setCars] = useState(JSON.parse(localStorage.getItem('cars')) || []);
+    const [cars, setCars] = useState(null);
     const [editIndex, setEditIndex] = useState(null);
     const [editFormData, setEditFormData] = useState({
-        nome: '',
-        marca: '',
-        cor: '',
-        ano: ''
+        name: '',
+        brand: '',
+        color: '',
+        year: ''
     });
 
     const handleAddCarClick = () => {
@@ -25,9 +26,10 @@ function CarList() {
     };
 
     const handleDeleteCarClick = (index) => {
-        const updatedCars = cars.filter((_, i) => i !== index);
-        setCars(updatedCars);
-        localStorage.setItem('cars', JSON.stringify(updatedCars));
+        deleteCar(index + 1).then(() => {
+            const updatedCars = cars.filter((_, i) => i !== index);
+            setCars(updatedCars);
+        })
     };
 
     const handleInputChange = (e) => {
@@ -39,9 +41,19 @@ function CarList() {
         const updatedCars = [...cars];
         updatedCars[index] = editFormData;
         setCars(updatedCars);
-        localStorage.setItem('cars', JSON.stringify(updatedCars));
+        updateCar(editFormData)
         setEditIndex(null);
     };
+
+    useEffect(() => {
+        getCars()
+            .then(response => {
+                setCars(response);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
 
     return (
         <div>
@@ -58,55 +70,55 @@ function CarList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {cars.map((car, index) => (
+                        {cars?.map((car, index) => (
                             <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
                                     {editIndex === index ? (
                                         <input
                                             type="text"
-                                            id="nome"
-                                            value={editFormData.nome}
+                                            id="name"
+                                            value={editFormData.name}
                                             onChange={handleInputChange}
                                         />
                                     ) : (
-                                        car.nome
+                                        car.name
                                     )}
                                 </td>
                                 <td>
                                     {editIndex === index ? (
                                         <input
                                             type="text"
-                                            id="marca"
-                                            value={editFormData.marca}
+                                            id="brand"
+                                            value={editFormData.brand}
                                             onChange={handleInputChange}
                                         />
                                     ) : (
-                                        car.marca
+                                        car.brand
                                     )}
                                 </td>
                                 <td>
                                     {editIndex === index ? (
                                         <input
                                             type="text"
-                                            id="cor"
-                                            value={editFormData.cor}
+                                            id="color"
+                                            value={editFormData.color}
                                             onChange={handleInputChange}
                                         />
                                     ) : (
-                                        car.cor
+                                        car.color
                                     )}
                                 </td>
                                 <td>
                                     {editIndex === index ? (
                                         <input
                                             type="number"
-                                            id="ano"
-                                            value={editFormData.ano}
+                                            id="year"
+                                            value={editFormData.year}
                                             onChange={handleInputChange}
                                         />
                                     ) : (
-                                        car.ano
+                                        car.year
                                     )}
                                 </td>
                                 <td>
@@ -115,7 +127,7 @@ function CarList() {
                                             <Button
                                                 variant="success"
                                                 onClick={() => handleSaveClick(index)}
-                                                style={{ marginLeft: '25px', marginRight: '15px'}}
+                                                style={{ marginLeft: '25px', marginRight: '15px' }}
                                             >
                                                 Salvar
                                             </Button>
